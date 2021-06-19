@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Fungus;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -8,10 +9,12 @@ public class ObjBase : MonoBehaviour, IPointerClickHandler
     public GameObject CurObj;
     private Camera m_Camera;
     public bool IsSelectObj = false;
+    public Flowchart Flowchart;
     private void Awake()
     {
         m_Camera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
         CurObj = gameObject;
+        Flowchart = GameObject.Find("Flowchart").GetComponent<Flowchart>();
         Init();
     }
     public virtual void Init()
@@ -24,22 +27,21 @@ public class ObjBase : MonoBehaviour, IPointerClickHandler
     }
     private void Update()
     {
-
+        OnUpdate();
+        bool isLeftDown = Input.GetMouseButtonUp(0);
         Ray ray = m_Camera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
             Debug.DrawLine(ray.origin, hit.point);
             GameObject gameobj = hit.collider.gameObject;
-            
-                IsSelectObj = true;
-            
-            
-            
+            Debug.Log("hit Obj : " + gameobj + "  leftDown :" + isLeftDown);
+            OnUpdateWithHit(hit, isLeftDown);
         }
-        OnUpdate(hit);
+        
     }
-    public virtual void OnUpdate(RaycastHit hit)
+    public virtual void OnUpdate() { }
+    public virtual void OnUpdateWithHit(RaycastHit hit,bool mouseLeftDown)
     {
 
     }

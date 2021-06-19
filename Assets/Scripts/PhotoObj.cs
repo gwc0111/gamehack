@@ -46,7 +46,7 @@ public class PhotoObj : ObjBase
     {
         mStartNextStep = false;
     }
-    public override void OnUpdate(RaycastHit hit)
+    public override void OnUpdate()
     {
         
         if(mStartNextStep)
