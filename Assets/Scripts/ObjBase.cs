@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using DG.Tweening;
 
 public class ObjBase : MonoBehaviour, IPointerClickHandler
 {
@@ -17,7 +18,7 @@ public class ObjBase : MonoBehaviour, IPointerClickHandler
 
     public bool mIsViewing = false;
     public bool mIsDialoging = false;
-
+    public bool mIsTweening = false;
     private void Awake()
     {
         m_Camera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
@@ -91,7 +92,7 @@ public class ObjBase : MonoBehaviour, IPointerClickHandler
         {
             Debug.DrawLine(ray.origin, hit.point);
             GameObject gameobj = hit.collider.gameObject;
-            Debug.Log("hit Obj : " + gameobj + "  leftDown :" + isLeftDown);
+            //Debug.Log("hit Obj : " + gameobj + "  leftDown :" + isLeftDown);
             if(isLeftDown)
             {
                 OnUpdateWithHit(hit, isLeftDown);
@@ -125,10 +126,10 @@ public class ObjBase : MonoBehaviour, IPointerClickHandler
     public virtual void OnObjMouseUp() { }
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.LogError("onpointclick");
+        //Debug.LogError("onpointclick");
     }
     public void OnObjMouseUp(PointerEventData eventData)
     {
-        Debug.LogError("onpointclick");
+        //Debug.LogError("onpointclick");
     }
 }

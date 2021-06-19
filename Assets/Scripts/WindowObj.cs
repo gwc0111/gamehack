@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class WindowObj : ObjBase
 {
@@ -41,6 +42,10 @@ public class WindowObj : ObjBase
     }
     public override void OnUpdate()
     {
+        if(mIsTweening)
+        {
+            return;
+        }
         if(mIsOver)
         {
             return;
@@ -66,6 +71,14 @@ public class WindowObj : ObjBase
     }
     public override void OnUpdateWithHit(RaycastHit hit, bool isMouseLeftDown)
     {
+        if(mIsViewing)
+        {
+            return;
+        }
+        if(mIsTweening)
+        {
+            return;
+        }
         if(mIsOver)
         {
             return;
@@ -73,12 +86,12 @@ public class WindowObj : ObjBase
         CurHitObj = hit.collider.gameObject;
         if(CurHitObj == mLeftClose)
         {
-            OpenLeftWindow(true);
+            OpenLeftWindow(mIsLeftOpening);
         }
-        else if(CurHitObj == mLeftOpen)
-        {
-            OpenLeftWindow(false);
-        }
+        //else if(CurHitObj == mLeftOpen)
+        //{
+        //    OpenLeftWindow(false);
+        //}
         else if (CurHitObj == mRightClose)
         {
             OpenRightghtWindow(true);
@@ -105,9 +118,32 @@ public class WindowObj : ObjBase
     }
     private void OpenLeftWindow(bool isOpen)
     {
-        mLeftClose.SetActive(!isOpen);
+        mIsLeftOpening = !mIsLeftOpening;
+        mIsTweening = true;
+        if (mIsLeftOpening)
+        {
+            mLeftClose.transform.DOScaleX(-0.5f, 0.8f).OnComplete(() => {
+                //mLeftClose.SetActive(false);
+                mIsTweening = false;
+                //mLeftOpen.transform.DOScaleX(1, 0.5f).OnComplete(() => {
+                //    mIsTweening = false;
+                //});
+            });
+        }
+        else
+        {
+            mLeftClose.transform.DOScaleX(1f, 0.8f).OnComplete(() => {
+                //mLeftClose.SetActive(false);
+                mIsTweening = false;
+                //mLeftOpen.transform.DOScaleX(1, 0.5f).OnComplete(() => {
+                //    mIsTweening = false;
+                //});
+            });
+        }
+        
+        //mLeftClose.SetActive(!isOpen);
         mLeftOpen.SetActive(isOpen);
-        mIsLeftOpening = isOpen;
+        //mIsLeftOpening = isOpen;
     }
     private void OpenRightghtWindow(bool isOpen)
     {

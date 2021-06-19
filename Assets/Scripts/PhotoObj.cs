@@ -25,7 +25,7 @@ public class PhotoObj : ObjBase
     private BoxCollider mBox;
 
     private bool mIsGetKey = false;
-    private bool mIsTweeing = false;
+
     public float TweenDur = 2f;
     //private BoxCollider2D mKeyBox;
     public override void Init()
@@ -39,7 +39,7 @@ public class PhotoObj : ObjBase
     
     public override void OnObjMouseDown()
     {
-        if(mIsTweeing)
+        if(mIsTweening)
         {
             return;
         }
@@ -50,7 +50,7 @@ public class PhotoObj : ObjBase
     }
     public override void OnUpdate()
     {
-        if(mIsTweeing)
+        if(mIsTweening)
         {
             return;
         }
@@ -69,9 +69,9 @@ public class PhotoObj : ObjBase
             else if(mStep == TutorialStep.Disapera)
             {
                 //mPhoto.gameObject.SetActive(false);
-                mPhoto.DOLocalMoveX(15, TweenDur).OnComplete(()=> { mIsTweeing = false; });
+                mPhoto.DOLocalMoveX(15, TweenDur).OnComplete(()=> { mIsTweening = false; });
                 mPhoto.GetComponent<SpriteRenderer>().material.DOFade(0, TweenDur);
-                mIsTweeing = true;
+                mIsTweening = true;
                 mBox.enabled = true;
                 
             }
@@ -117,9 +117,10 @@ public class PhotoObj : ObjBase
     private float dis = 0.5f;
     private void ShowKey()
     {
-
+        mIsTweening = true;
         mKey.DOScale(new Vector3(2, 2, 0), dis).OnComplete(() => {
             mKey.GetComponent<SpriteRenderer>().material.DOFade(0, dis).OnComplete(()=> {
+                mIsTweening = false;
                 mKey.gameObject.SetActive(false);
             
             });
