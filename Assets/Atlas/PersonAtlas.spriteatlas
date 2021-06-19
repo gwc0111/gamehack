@@ -35,11 +35,25 @@ SpriteAtlas:
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: 027ef1f0c3e55a94a8dcad73bf26f372, type: 3}
   - {fileID: 21300000, guid: 9a84cf631e04d654fa167eaef7f519fa, type: 3}
+  - {fileID: 21300000, guid: 19e2c8e31b3cfd64fa020d07a710d789, type: 3}
+  - {fileID: 21300000, guid: 602deb65f3978d64584b9aca56a3f137, type: 3}
   - {fileID: 21300000, guid: b125c1179f5c8ad4db442cb28d69fbae, type: 3}
+  - {fileID: 21300000, guid: 73154787c19fa3a46982b5c717cc7232, type: 3}
+  - {fileID: 21300000, guid: a859e87a335a0a2438eadeae1a0a6117, type: 3}
+  - {fileID: 21300000, guid: a3e83eec888581345ba372c8c46847a9, type: 3}
+  - {fileID: 21300000, guid: 96bff3bdc1f019043a4a3aa6e841c625, type: 3}
   m_PackedSpriteNamesToIndex:
+  - walk_02
   - "\u5C0F\u5973\u5B69_idle"
+  - idle_03
+  - walk_04
   - "\u5C0F\u5973\u5B69_walk"
+  - walk_03
+  - idle_01
+  - walk_01
+  - idle_02
   m_Tag: PersonAtlas
   m_IsVariant: 0
   m_IsPlaceholder: 0

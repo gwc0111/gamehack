@@ -19,7 +19,7 @@ public class VirusGameManager : MonoBehaviour
 
     IEnumerator Setup()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(.8f);
 
         leftBuilding.OnBuildingFinish.AddListener(GameFinish);
     }

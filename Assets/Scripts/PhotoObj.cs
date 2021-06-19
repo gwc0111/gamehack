@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using DG.Tweening;
 public class PhotoObj : ObjBase
 {
     enum TutorialStep
@@ -20,20 +21,17 @@ public class PhotoObj : ObjBase
     private Transform mPhoto;
     private Transform mKey;
     private bool mStartNextStep = false;
-    private Flowchart mFlowChat;
-
     
     private BoxCollider mBox;
 
     private bool mIsGetKey = false;
-
+    private bool mIsTweeing = false;
     
     //private BoxCollider2D mKeyBox;
     public override void Init()
     {
         mPhoto = transform.Find("Photo");
         mKey = transform.Find("Key");
-        mFlowChat = GameObject.Find("Flowchart").GetComponent<Flowchart>();
         mBox = GetComponent<BoxCollider>();
         //mKeyBox = mKey.GetComponent<BoxCollider2D>();
         
@@ -41,18 +39,21 @@ public class PhotoObj : ObjBase
     
     public override void OnObjMouseDown()
     {
+        if(mIsTweeing)
+        {
+            return;
+        }
         mStep++;
         mBox.enabled = false;
         Debug.LogError(mStep);
         mStartNextStep = true;
     }
-    
-    public override void OnObjMouseUp()
-    {
-
-    }
     public override void OnUpdate()
     {
+        if(mIsTweeing)
+        {
+            return;
+        }
         if(mStep == TutorialStep.Over)
         {
             return;
@@ -67,7 +68,9 @@ public class PhotoObj : ObjBase
             }
             else if(mStep == TutorialStep.Disapera)
             {
-                mPhoto.gameObject.SetActive(false);
+                //mPhoto.gameObject.SetActive(false);
+                mPhoto.DOLocalMoveX(15, 2);
+                mIsTweeing = true;
                 mBox.enabled = true;
                 
             }
@@ -106,6 +109,7 @@ public class PhotoObj : ObjBase
             mStep = TutorialStep.Over;
             mBox.enabled = false;
             ExitView();
+            GameLogicManager.Instance.IsFirstLevelOver = mIsGetKey;
         }
     }
 

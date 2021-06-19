@@ -101,7 +101,7 @@ public class WindowObj : ObjBase
     }
     private bool IsStart()
     {
-        return true;
+        return true;// GameLogicManager.Instance.IsCanOpenWindow;
     }
     private void OpenLeftWindow(bool isOpen)
     {

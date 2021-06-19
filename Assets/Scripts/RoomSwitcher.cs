@@ -31,7 +31,10 @@ public class RoomSwitcher : MonoBehaviour
     {
         if (!inDoorArea || !isOpen)
             return;
-
+        if(!GameLogicManager.Instance.IsFirstLevelOver)
+        {
+            return;
+        }
         if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             //切换房间

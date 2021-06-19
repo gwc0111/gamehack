@@ -235,6 +235,7 @@ MonoBehaviour:
   targetList:
   - {fileID: 3616828857504325896}
   - {fileID: 3616828857947599485}
+  leftBuilding: {fileID: 1035504806}
 --- !u!1 &3616828857504325899
 GameObject:
   m_ObjectHideFlags: 0

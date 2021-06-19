@@ -8,7 +8,7 @@ public class Tips : MonoBehaviour
     [SerializeField] string block;
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.tag == "Player" && !GameLogicManager.Instance.IsFirstLevelOver)
         {
             var flowchart = FindObjectOfType<Flowchart>();
             if(flowchart != null)
