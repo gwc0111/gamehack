@@ -11,8 +11,10 @@ public class PhotoObj : ObjBase
     {
         None,
         Forcus,
+        Dialog,
         Disapera,
         Reset,
+        Over
     }
     private TutorialStep mStep = TutorialStep.None;
     private Transform mPhoto;
@@ -20,10 +22,12 @@ public class PhotoObj : ObjBase
     private bool mStartNextStep = false;
     private Flowchart mFlowChat;
 
-    private GameObject mSayDiolog = null;
+    
     private BoxCollider mBox;
 
     private bool mIsGetKey = false;
+
+    
     //private BoxCollider2D mKeyBox;
     public override void Init()
     {
@@ -34,6 +38,7 @@ public class PhotoObj : ObjBase
         //mKeyBox = mKey.GetComponent<BoxCollider2D>();
         
     }
+    
     public override void OnObjMouseDown()
     {
         mStep++;
@@ -44,20 +49,21 @@ public class PhotoObj : ObjBase
     
     public override void OnObjMouseUp()
     {
-        mStartNextStep = false;
+
     }
     public override void OnUpdate()
     {
-        
+        if(mStep == TutorialStep.Over)
+        {
+            return;
+        }
         if(mStartNextStep)
         {
             mStartNextStep = false;
             if(mStep == TutorialStep.Forcus)
             {
-                mFlowChat.GetExecutingBlocks();
-                mFlowChat.ExecuteBlock("ViewPhoto");
-                StartCoroutine(WaitOver());
-                
+                mBox.enabled = false;
+                ExcuteView("ViewPhoto");
             }
             else if(mStep == TutorialStep.Disapera)
             {
@@ -71,21 +77,41 @@ public class PhotoObj : ObjBase
                 mIsGetKey = true;
             }
         }
+        if(mStep == TutorialStep.Forcus)
+        {
+            if(mIsViewing)
+            {
+                mBox.enabled = false;
+            }
+            else
+            {
+                OnViewOver();
+                mStep = TutorialStep.Dialog;
+            }
+        }
+        if(mStep == TutorialStep.Dialog)
+        {
+            if(mIsDialoging)
+            {
+                mBox.enabled = false;
+            }
+            else
+            {
+                mBox.enabled = true;
+            }
+        }
         if(mIsGetKey)
         {
-
+            Debug.LogError("获得钥匙");
+            mStep = TutorialStep.Over;
+            mBox.enabled = false;
+            ExitView();
         }
     }
 
-    private IEnumerator WaitOver()
+    private void OnViewOver()
     {
-        
-        yield return new WaitForSeconds(1);
-        mFlowChat.ExecuteBlock("LookPicture");
-        mSayDiolog = GameObject.Find("SayDialog");
-        yield return new WaitUntil(() => {
-            return mSayDiolog.activeSelf == false; });
-        mBox.enabled = true;
+        ExcuteSayDialog("LookPicture");
     }
     private void ForcusStep()
     {
