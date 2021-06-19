@@ -34,8 +34,24 @@ SpriteAtlas:
     - {fileID: 102900000, guid: 78e07ff9e6793024790832344885887e, type: 3}
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
-  m_PackedSprites: []
-  m_PackedSpriteNamesToIndex: []
+  m_PackedSprites:
+  - {fileID: 21300000, guid: b6177fe04f155ff4da2ab1c7797a4b64, type: 3}
+  - {fileID: 21300000, guid: 6d8fec539cbf4f4438093770ab0161b9, type: 3}
+  - {fileID: 21300000, guid: 12e3afd4531c13a40a2abec11f15b5d0, type: 3}
+  - {fileID: 21300000, guid: 76007dc803854c34f80fc6c667cd123a, type: 3}
+  - {fileID: 21300000, guid: 1922e41910a39014eada11ffe19953be, type: 3}
+  - {fileID: 21300000, guid: 1219731a3fad2304b9e81e7bab22f005, type: 3}
+  - {fileID: 21300000, guid: 09d89a1a2f32901488509650817c5f54, type: 3}
+  - {fileID: 21300000, guid: d5f2f38aa8ee9e74bba1f8752d64de3f, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - "\u628A\u624B\u6C61\u6E0D2"
+  - "\u7535\u89C6\u533B\u9662"
+  - "\u53E3\u7F69"
+  - "\u628A\u624B\u6C61\u6E0D1"
+  - "\u628A\u624B\u6C61\u6E0D3"
+  - "\u7B2C\u4E8C\u5173"
+  - "\u628A\u624B\u6C61\u6E0D4"
+  - "\u628A\u624B\u653E\u5927"
   m_Tag: SecondLevelAtals
   m_IsVariant: 0
   m_IsPlaceholder: 0
