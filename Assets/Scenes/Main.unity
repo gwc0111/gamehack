@@ -1321,11 +1321,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577332202}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.55278, y: 14.246661, z: -10}
+  m_LocalPosition: {x: -0.58192253, y: -0.32426357, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &707569821
 GameObject:
@@ -2962,12 +2962,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1745751285}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.779999, y: 11.1, z: -10}
+  m_LocalPosition: {x: -4.880001, y: -3.79, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2121332197}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1745751288
 MonoBehaviour:
@@ -2983,7 +2983,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ConfineMode: 0
   m_BoundingVolume: {fileID: 0}
-  m_BoundingShape2D: {fileID: 1226769032}
+  m_BoundingShape2D: {fileID: 1438003943}
   m_ConfineScreenEdges: 1
   m_Damping: 0
 --- !u!1 &1757991199
@@ -3047,12 +3047,12 @@ PrefabInstance:
     - target: {fileID: 4447508690746517022, guid: cf464d381234946a882f3e15dcd7739c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.07
+      value: -5.59
       objectReference: {fileID: 0}
     - target: {fileID: 4447508690746517022, guid: cf464d381234946a882f3e15dcd7739c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.72
+      value: -5.17
       objectReference: {fileID: 0}
     - target: {fileID: 4447508690746517022, guid: cf464d381234946a882f3e15dcd7739c,
         type: 3}
