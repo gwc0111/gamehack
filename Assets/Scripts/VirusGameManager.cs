@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Fungus;
 
 public class VirusGameManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class VirusGameManager : MonoBehaviour
     [SerializeField] Transform[] targetList;
 
     [SerializeField] ShaderController leftBuilding;
+    //[SerializeField] string endBlock;
     bool isStart = false;
 
     private void Start()
@@ -37,7 +39,7 @@ public class VirusGameManager : MonoBehaviour
         if(Input.GetMouseButtonDown(0) && isStart)
         {
             var virus = Instantiate(virusPrefab, transform);
-            int randSrc = Random.Range(0, srcPosList.Length);
+            int randSrc = Random.Range(0f, 1f) > 0.8f ? 0 : 1;
             virus.transform.position = srcPosList[randSrc].transform.position;
 
             int randTarget = Random.Range(0, targetList.Length);
@@ -57,5 +59,12 @@ public class VirusGameManager : MonoBehaviour
         }
 
         SceneController.instance.EndFocus();
+
+        //var flowchart = FindObjectOfType<Flowchart>();
+        //if (flowchart != null)
+        //{
+        //    flowchart.ExecuteBlock(endBlock);
+        //}
+        //FindObjectOfType<Flowchart>().ExecuteBlock(endBlock);
     }
 }

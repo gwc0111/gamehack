@@ -18,9 +18,10 @@ public class ShaderController : MonoBehaviour
 
     public void SetDissolve()
     {
-        float rand = Random.Range(0.02f, 0.06f);
+        float rand = Random.Range(0.05f, 0.1f);
         fade -= rand;
         material.SetFloat("_Fade", fade);
+        BGMManager.instance.PlayAudioEffect("Bubble");
 
         if(fade <=0)
         {

@@ -44,6 +44,8 @@ public class RoomSwitcher : MonoBehaviour
             FindObjectOfType<Cinemachine.CinemachineConfiner>().m_BoundingShape2D = targetCollider;
 
             inDoorArea = false;
+
+            BGMManager.instance.PlayAudioEffect("OpenDoor");
         }
     }
 }

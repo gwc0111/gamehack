@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
         if (Mathf.Approximately(horizontal, 0.0f))
         {
+            animator.SetFloat("Speed", Mathf.Abs(horizontal));
             return;
         }
 

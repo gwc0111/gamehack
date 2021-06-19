@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6186056665542396043
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6186056665542396041}
+  - component: {fileID: 6186056665542396042}
+  m_Layer: 0
+  m_Name: BGMManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6186056665542396041
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6186056665542396043}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 28.769533, y: 12.3412075, z: -4.973448}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6186056665542396042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6186056665542396043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5ccb32529a1347ae8dd578ddd5091cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: BGM
+    clip: {fileID: 8300000, guid: b171836396eb24158be57a220c9432d7, type: 3}
+    volume: 1
+    loop: 1
+    source: {fileID: 0}
+  audioEffect:
+  - name: OpenDoor
+    clip: {fileID: 8300000, guid: a028d6e058c184ee5bbf41f4bf5b2728, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: CantOpenDoor
+    clip: {fileID: 8300000, guid: a66ac786165bc4f6da72422aab3d7308, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: OpenDoorWithKey
+    clip: {fileID: 8300000, guid: 7d06944235fc7461c9c190e238df199f, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: VaseBroken
+    clip: {fileID: 8300000, guid: 3efddcfd2b0e54bad8b8580bdd3ecc98, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: WalkLeft
+    clip: {fileID: 8300000, guid: 0010022da61654e2287b8ecb44d87560, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: WalkRight
+    clip: {fileID: 8300000, guid: 0010022da61654e2287b8ecb44d87560, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Bubble
+    clip: {fileID: 8300000, guid: 8451f36f7daaa45f985594065dc8146d, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
