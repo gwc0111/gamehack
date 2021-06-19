@@ -94,12 +94,12 @@ public class WindowObj : ObjBase
         //}
         else if (CurHitObj == mRightClose)
         {
-            OpenRightghtWindow(true);
+            OpenRightghtWindow(mIsRightOpening);
         }
-        else if (CurHitObj == mRightOpen)
-        {
-            OpenRightghtWindow(false);
-        }
+        //else if (CurHitObj == mRightOpen)
+        //{
+        //    OpenRightghtWindow(false);
+        //}
         else if(CurHitObj == mNoodleBox.gameObject)
         {
             ExcuteSayDialog("NoodleBox");
@@ -119,6 +119,10 @@ public class WindowObj : ObjBase
     private void OpenLeftWindow(bool isOpen)
     {
         mIsLeftOpening = !mIsLeftOpening;
+        if(!mIsLeftOpening)
+        {
+            mNoodleBox.enabled = false;
+        }
         mIsTweening = true;
         if (mIsLeftOpening)
         {
@@ -142,13 +146,29 @@ public class WindowObj : ObjBase
         }
         
         //mLeftClose.SetActive(!isOpen);
-        mLeftOpen.SetActive(isOpen);
+        //mLeftOpen.SetActive(isOpen);
         //mIsLeftOpening = isOpen;
     }
     private void OpenRightghtWindow(bool isOpen)
     {
-        mRightClose.SetActive(!isOpen);
-        mRightOpen.SetActive(isOpen);
-        mIsRightOpening = isOpen;
+        mIsRightOpening = !mIsRightOpening;
+        if (!mIsRightOpening)
+        {
+            mNoodleBox.enabled = false;
+        }
+        mIsTweening = true;
+        if (mIsRightOpening)
+        {
+            mRightClose.transform.DOScaleX(-0.5f, 0.8f).OnComplete(() => {
+                mIsTweening = false;
+            });
+        }
+        else
+        {
+            mRightClose.transform.DOScaleX(1f, 0.8f).OnComplete(() => {
+                mIsTweening = false;
+            });
+        }
+        //mIsRightOpening = isOpen;
     }
 }
