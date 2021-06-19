@@ -5,6 +5,7 @@ using UnityEngine;
 public class RoomSwitcher : MonoBehaviour
 {
     [SerializeField] Transform target;
+    [SerializeField] PolygonCollider2D targetCollider;
     public bool isOpen;
 
     bool inDoorArea;
@@ -25,13 +26,21 @@ public class RoomSwitcher : MonoBehaviour
         inDoorArea = false;
     }
 
+    
     private void Update()
     {
+        if (!inDoorArea || !isOpen)
+            return;
+
         if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             //切换房间
             GameObject player = GameObject.Find("Player");
             player.transform.position = target.position;
+
+            FindObjectOfType<Cinemachine.CinemachineConfiner>().m_BoundingShape2D = targetCollider;
+
+            inDoorArea = false;
         }
     }
 }

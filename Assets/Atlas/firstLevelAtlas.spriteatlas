@@ -36,7 +36,7 @@ SpriteAtlas:
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: f37eb4506da05d94691c31808be85bf2, type: 3}
-  - {fileID: 21300000, guid: ba712650d0fc2a542ac152d07c17c1e4, type: 3}
+  - {fileID: 21300000, guid: ddc896c104f9344f3a52d602454b1509, type: 3}
   - {fileID: 21300000, guid: 4eea9d3309b41e54d885278140585692, type: 3}
   - {fileID: 21300000, guid: 1e94170540249f9419a4953ed909d90c, type: 3}
   - {fileID: 21300000, guid: c09e4f0811e615746a623dcf3f286161, type: 3}
@@ -44,9 +44,10 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 24de83c990a9ea64dbe1125753e4f64e, type: 3}
   - {fileID: 21300000, guid: 4fa1dd3aeea63774e851ba8e56220f56, type: 3}
   - {fileID: 21300000, guid: 52a12c6a336871d4ca0fa891a91d3470, type: 3}
+  - {fileID: 21300000, guid: 770b8b5eaca5d405699e8d6f17998f51, type: 3}
   m_PackedSpriteNamesToIndex:
   - "\u5DE6\u7A97\u9875\u5F00"
-  - "\u76F8\u6846"
+  - "\u7B2C\u4E00\u5173\u80CC\u666F"
   - "\u53F3\u7A97\u9875\u5173"
   - "\u5DE6\u7A97\u9875\u5173"
   - "\u94A5\u5319"
@@ -54,6 +55,7 @@ SpriteAtlas:
   - "\u6CE1\u9762"
   - "\u76F8\u6846\u5927"
   - "\u53F3\u7A97\u9875\u5F00"
+  - "\u5168\u5BB6\u798F"
   m_Tag: firstLevelAtlas
   m_IsVariant: 0
   m_IsPlaceholder: 0
