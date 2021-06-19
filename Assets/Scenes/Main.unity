@@ -823,7 +823,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 364.78342
     y: 489.00473
-    width: 114.516075
+    width: 114.61539
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1402,27 +1402,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf464d381234946a882f3e15dcd7739c, type: 3}
---- !u!1 &1931898516 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1722263062687408382, guid: 23655a2b06e87014a9cf16cb0638d3eb,
-    type: 3}
-  m_PrefabInstance: {fileID: 1722263062726825172}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1931898519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1931898516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc03961113fa349c09cb06ef2911013d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clickEnabled: 1
-  hoverCursor: {fileID: 0}
-  useEventSystem: 0
 --- !u!1001 &1960611707
 PrefabInstance:
   m_ObjectHideFlags: 0

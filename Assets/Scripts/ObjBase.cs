@@ -35,8 +35,9 @@ public class ObjBase : MonoBehaviour, IPointerClickHandler
                 IsSelectObj = true;
             
             
-            OnUpdate(hit);
+            
         }
+        OnUpdate(hit);
     }
     public virtual void OnUpdate(RaycastHit hit)
     {
