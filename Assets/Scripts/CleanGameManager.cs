@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Fungus;
 using UnityEngine;
 
 public class CleanGameManager : MonoBehaviour
 {
     [SerializeField] GameObject faceMask;
     [SerializeField] GameObject[] dirtyList;
+    [SerializeField] string endBlock;
+    [SerializeField] GameObject entrance;
     int lastDirtyCount;
 
     bool isPressing;
@@ -13,7 +16,9 @@ public class CleanGameManager : MonoBehaviour
     void Start()
     {
         lastDirtyCount = dirtyList.Length;
-        faceMask.SetActive(true);
+        faceMask.SetActive(false);
+
+        StartCoroutine(setup());
     }
 
     IEnumerator setup()
@@ -36,6 +41,12 @@ public class CleanGameManager : MonoBehaviour
 
     void EndGame()
     {
-        //TODO
+        //var flowchart = FindObjectOfType<Flowchart>();
+        //if(endBlock!="")
+        //    flowchart.ExecuteBlock(endBlock);
+        SceneController.instance.EndFocus();
+
+        faceMask.SetActive(false);
+        entrance.SetActive(true);
     }
 }

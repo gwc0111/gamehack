@@ -10,7 +10,7 @@ public class VirusGameManager : MonoBehaviour
     [SerializeField] Transform[] targetList;
 
     [SerializeField] ShaderController leftBuilding;
-    bool isStart = true;
+    bool isStart = false;
 
     private void Start()
     {
@@ -23,6 +23,13 @@ public class VirusGameManager : MonoBehaviour
 
         leftBuilding.OnBuildingFinish.AddListener(GameFinish);
     }
+
+
+    public void StartGame()
+    {
+        isStart = true;
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -48,5 +55,7 @@ public class VirusGameManager : MonoBehaviour
         {
             Destroy(src.gameObject);
         }
+
+        SceneController.instance.EndFocus();
     }
 }

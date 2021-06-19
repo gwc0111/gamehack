@@ -1,16 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Fungus;
 using UnityEngine;
 
 public class Clickable : MonoBehaviour
 {
     [SerializeField] GameObject hoverEffectPrefab;
+    [SerializeField] string block;
     GameObject hoverEffect;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -33,7 +30,21 @@ public class Clickable : MonoBehaviour
         }
         else
         {
-            Destroy(hoverEffect);
+            if(hoverEffect)
+                Destroy(hoverEffect);
         }
+
+        if(hoverEffect && Input.GetMouseButtonDown(0) && block != "")
+        {
+            Flowchart flowchart = GameObject.Find("Flowchart").GetComponent<Flowchart>();
+            SceneController.instance.StartFocus();
+            flowchart.ExecuteBlock(block);
+
+            if (hoverEffect)
+                Destroy(hoverEffect);
+
+            this.enabled = false;
+        }
+
     }
 }
