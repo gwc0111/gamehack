@@ -10,7 +10,7 @@ public class Tips : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player" && !GameLogicManager.Instance.IsFirstLevelOver)
         {
-            var flowchart = FindObjectOfType<Flowchart>();
+            var flowchart = GameObject.Find("Flowchart").GetComponent<Flowchart>();
             if(flowchart != null)
             {
                 flowchart.ExecuteBlock(block);
