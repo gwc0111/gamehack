@@ -32,7 +32,7 @@ public class RoomSwitcher : MonoBehaviour
         if (!inDoorArea || !isOpen)
             return;
 
-        if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             //切换房间
             GameObject player = GameObject.Find("Player");

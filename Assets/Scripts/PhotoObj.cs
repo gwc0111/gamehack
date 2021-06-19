@@ -20,26 +20,25 @@ public class PhotoObj : ObjBase
     private bool mStartNextStep = false;
     private Flowchart mFlowChat;
 
-    private bool mIsCanOperate = true;
-    //private BoxCollider2D mPhotoBox;
+    private GameObject mSayDiolog = null;
+    private BoxCollider mBox;
+
+    private bool mIsGetKey = false;
     //private BoxCollider2D mKeyBox;
     public override void Init()
     {
         mPhoto = transform.Find("Photo");
         mKey = transform.Find("Key");
         mFlowChat = GameObject.Find("Flowchart").GetComponent<Flowchart>();
-        //mPhotoBox = mPhoto.GetComponent<BoxCollider2D>();
+        mBox = GetComponent<BoxCollider>();
         //mKeyBox = mKey.GetComponent<BoxCollider2D>();
         
     }
     public override void OnObjMouseDown()
     {
-        if(!mIsCanOperate)
-        {
-            return;
-        }
-        mStep = (TutorialStep)(mStep + 1);
-        Debug.LogWarning("mStep : " + mStep);
+        mStep++;
+        mBox.enabled = false;
+        Debug.LogError(mStep);
         mStartNextStep = true;
     }
     
@@ -49,25 +48,45 @@ public class PhotoObj : ObjBase
     }
     public override void OnUpdate(RaycastHit hit)
     {
+        
         if(mStartNextStep)
         {
             mStartNextStep = false;
             if(mStep == TutorialStep.Forcus)
             {
-                 mFlowChat.GetExecutingBlocks();
+                mFlowChat.GetExecutingBlocks();
                 mFlowChat.ExecuteBlock("ViewPhoto");
-                StartCoroutine(WaitSeond());
+                StartCoroutine(WaitOver());
+                
             }
+            else if(mStep == TutorialStep.Disapera)
+            {
+                mPhoto.gameObject.SetActive(false);
+                mBox.enabled = true;
+                
+            }
+            else if(mStep == TutorialStep.Reset)
+            {
+                mKey.gameObject.SetActive(false);
+                mIsGetKey = true;
+            }
+        }
+        if(mIsGetKey)
+        {
+
         }
     }
 
-    private IEnumerator WaitSeond()
+    private IEnumerator WaitOver()
     {
-        mIsCanOperate = false;
+        
         yield return new WaitForSeconds(1);
-        mIsCanOperate = true;
+        mFlowChat.ExecuteBlock("LookPicture");
+        mSayDiolog = GameObject.Find("SayDialog");
+        yield return new WaitUntil(() => {
+            return mSayDiolog.activeSelf == false; });
+        mBox.enabled = true;
     }
-
     private void ForcusStep()
     {
 
