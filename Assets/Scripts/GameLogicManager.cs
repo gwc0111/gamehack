@@ -7,9 +7,12 @@ public class GameLogicManager : MonoBehaviour
     public static GameLogicManager Instance;
     public bool IsFirstLevelOver = false;
     public bool IsCanOpenWindow = true;
+    public bool IsCanOpenPhoto = true;
     private void Awake()
     {
         Instance = this;
+        IsCanOpenPhoto = true;
+        IsCanOpenWindow = false;
     }
     // Start is called before the first frame update
     void Start()

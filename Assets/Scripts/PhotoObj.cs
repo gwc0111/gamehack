@@ -39,7 +39,7 @@ public class PhotoObj : ObjBase
    
     public override void OnObjMouseOver()
     {
-        if(mStep == TutorialStep.None)
+        if(mStep == TutorialStep.None && GameLogicManager.Instance.IsCanOpenPhoto)
             HoverPre.SetActive(true);
         else
         {
@@ -52,6 +52,10 @@ public class PhotoObj : ObjBase
     }
     public override void OnObjMouseDown()
     {
+        if(!GameLogicManager.Instance.IsCanOpenPhoto)
+        {
+            return;
+        }
         HoverPre.SetActive(false);
         if (mIsTweening)
         {

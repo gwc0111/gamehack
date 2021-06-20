@@ -45,7 +45,7 @@ public class WindowObj : ObjBase
     }
     public override void OnObjMouseDown()
     {
-        Debug.LogError("down");
+        
     }
     public override void OnUpdate()
     {

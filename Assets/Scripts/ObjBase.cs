@@ -62,9 +62,10 @@ public class ObjBase : MonoBehaviour, IPointerClickHandler
 
     public void ExitView()
     {
-        OnResetCamera();
-        mCMvcam1.SetActive(true);
-        mPlayer.gameObject.SetActive(true);
+        SceneController.instance.EndFocus();
+        //OnResetCamera();
+        //mCMvcam1.SetActive(true);
+        //mPlayer.gameObject.SetActive(true);
     }
     private void OnResetCamera()
     {
