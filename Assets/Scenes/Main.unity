@@ -3039,7 +3039,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 773.815
     y: 519.0594
-    width: 93.569145
+    width: 93.625885
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3066,7 +3066,7 @@ MonoBehaviour:
   - {fileID: 1079055479}
   - {fileID: 1079055439}
   - {fileID: 1079055438}
-  - {fileID: 1079055437}
+  - {fileID: 1079055396}
   - {fileID: 1079055388}
   suppressAllAutoSelections: 0
 --- !u!114 &1079055386
@@ -3085,7 +3085,7 @@ MonoBehaviour:
   indentLevel: 0
   _duration:
     floatRef: {fileID: 0}
-    floatVal: 3
+    floatVal: 2
   durationOLD: 0
 --- !u!114 &1079055387
 MonoBehaviour:
@@ -3275,6 +3275,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1079055396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079055380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 106
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 1937961878}
+  targetComponentAssemblyName: SceneFadeLoader, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: SceneFadeLoader
+  targetMethod: ShowScene
+  targetMethodText: 'ShowScene (Boolean, Single): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      typeFullname: System.Boolean
+      intValue: 0
+      boolValue: 1
+      floatValue: 0
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 0}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  - objValue:
+      typeAssemblyname: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      typeFullname: System.Single
+      intValue: 0
+      boolValue: 0
+      floatValue: 3
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 0}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
 --- !u!114 &1079055397 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5471981894983666571, guid: 308dae58f2f994d1eb662141f819864a,
@@ -3384,7 +3446,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 364.78342
     y: 491.35
-    width: 111.12686
+    width: 111.20647
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3475,7 +3537,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 514.7366
     y: 492.17236
-    width: 123.48229
+    width: 123.57799
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3545,7 +3607,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 362.46912
     y: 391.19534
-    width: 146.24228
+    width: 146.36763
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3594,7 +3656,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 526.9182
     y: 393.0257
-    width: 113.07771
+    width: 113.15987
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3981,26 +4043,6 @@ MonoBehaviour:
   orthoSizeTweenType: 4
   posTweenType: 4
   rotTweenType: 4
---- !u!114 &1079055437
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1079055380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 207aecf668a0345388087ccf522f9957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 67
-  indentLevel: 0
-  duration: 3
-  targetAlpha: 1
-  waitUntilFinished: 1
-  fadeColor: {r: 0, g: 0, b: 0, a: 1}
-  fadeTexture: {fileID: 0}
-  fadeTweenType: 4
 --- !u!114 &1079055438
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -4681,7 +4723,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 426.50818
     y: -93.64093
-    width: 105.27429
+    width: 105.34627
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4768,7 +4810,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 292.9527
     y: -98.370026
-    width: 104.624
+    width: 104.695145
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
