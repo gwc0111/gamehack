@@ -46,12 +46,12 @@ MonoBehaviour:
   sounds:
   - name: BGM
     clip: {fileID: 8300000, guid: b171836396eb24158be57a220c9432d7, type: 3}
-    volume: 1
+    volume: 0.5
     loop: 1
     source: {fileID: 0}
   - name: Title
     clip: {fileID: 8300000, guid: e389dd3775b934479a44dbd3dc05e78f, type: 3}
-    volume: 1
+    volume: 0.5
     loop: 1
     source: {fileID: 0}
   audioEffect:
