@@ -296,6 +296,8 @@ MonoBehaviour:
   mCMvcam1: {fileID: 0}
   IsSelectObj: 0
   Flowchart: {fileID: 0}
+  HoverPre: {fileID: 7384085833265492360, guid: 493d7555daa1343fdbef7fb3b4c2edf9,
+    type: 3}
   mIsViewing: 0
   mIsDialoging: 0
   mIsTweening: 0

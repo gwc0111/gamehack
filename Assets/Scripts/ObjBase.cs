@@ -15,17 +15,22 @@ public class ObjBase : MonoBehaviour, IPointerClickHandler
     public CameraData mCamData = new CameraData();
     private bool mIsRayOnce = true;
     private GameObject mSayDiolog = null;
+    private PlayerController mPlayer;
+    public GameObject HoverPre;
 
     public bool mIsViewing = false;
     public bool mIsDialoging = false;
     public bool mIsTweening = false;
     private void Awake()
     {
+        mPlayer = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         m_Camera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
         CurObj = gameObject;
         Flowchart = GameObject.Find("Flowchart").GetComponent<Flowchart>();
         mCMvcam1 = GameObject.Find("CM vcam1");
         mSayDiolog = GameObject.Find("SayDialog");
+        HoverPre = Instantiate<GameObject>(HoverPre, transform);
+        HoverPre.SetActive(false);
         Init();
     }
     public virtual void Init()
@@ -59,6 +64,7 @@ public class ObjBase : MonoBehaviour, IPointerClickHandler
     {
         OnResetCamera();
         mCMvcam1.SetActive(true);
+        mPlayer.gameObject.SetActive(true);
     }
     private void OnResetCamera()
     {
@@ -72,10 +78,12 @@ public class ObjBase : MonoBehaviour, IPointerClickHandler
     }
     public void ExcuteView(string viewName)
     {
+        mPlayer.gameObject.SetActive(false);
         Flowchart.ExecuteBlock(viewName);
         RecordCameraData();
         mIsViewing = true;
         StartCoroutine(OnViewing());
+
     }
     private IEnumerator OnViewing()
     {
@@ -104,10 +112,17 @@ public class ObjBase : MonoBehaviour, IPointerClickHandler
     {
 
     }
+    private void OnMouseOver()
+    {
+        OnObjMouseOver();
+    }
+    public virtual void OnObjMouseOver() { }
     private void OnMouseExit()
     {
         IsSelectObj = false;
+        OnObjMouseExit();
     }
+    public virtual void OnObjMouseExit() { }
     private void OnMouseDown()
     {
 

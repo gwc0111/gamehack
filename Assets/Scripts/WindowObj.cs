@@ -32,9 +32,16 @@ public class WindowObj : ObjBase
         mNoodleBox = GameObject.Find("NoodleBox").GetComponent<BoxCollider>();
         mNoodleBox.enabled = false;
     }
-    public override void OnObjMouseEnter()
+    public override void OnObjMouseOver()
     {
-
+      if(GameLogicManager.Instance.IsCanOpenWindow && mBoxColl.enabled)
+        {
+            HoverPre.SetActive(true);
+        }
+      else
+        {
+            HoverPre.SetActive(false);
+        }    
     }
     public override void OnObjMouseDown()
     {
@@ -42,6 +49,10 @@ public class WindowObj : ObjBase
     }
     public override void OnUpdate()
     {
+        if(!mBoxColl.enabled)
+        {
+            HoverPre.SetActive(false);
+        }
         if(mIsTweening)
         {
             return;
@@ -61,7 +72,8 @@ public class WindowObj : ObjBase
         }
         if(mIsDia)
         {
-            if(!mIsDialoging)
+            mNoodleBox.enabled = false;
+            if (!mIsDialoging)
             {
                 ExitView();
                 mNoodleBox.enabled = false;
@@ -104,6 +116,7 @@ public class WindowObj : ObjBase
         {
             ExcuteSayDialog("NoodleBox");
             mIsDia = true;
+            mNoodleBox.enabled = false;
         }
         if(IsStart() && CurHitObj == gameObject)
         {
@@ -114,7 +127,7 @@ public class WindowObj : ObjBase
     }
     private bool IsStart()
     {
-        return true;// GameLogicManager.Instance.IsCanOpenWindow;
+        return  GameLogicManager.Instance.IsCanOpenWindow;
     }
     private void OpenLeftWindow(bool isOpen)
     {

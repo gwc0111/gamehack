@@ -36,16 +36,29 @@ public class PhotoObj : ObjBase
         //mKeyBox = mKey.GetComponent<BoxCollider2D>();
         
     }
-    
+   
+    public override void OnObjMouseOver()
+    {
+        if(mStep == TutorialStep.None)
+            HoverPre.SetActive(true);
+        else
+        {
+            HoverPre.SetActive(false);
+        }
+    }
+    public override void OnObjMouseExit()
+    {
+        HoverPre.SetActive(false);
+    }
     public override void OnObjMouseDown()
     {
-        if(mIsTweening)
+        HoverPre.SetActive(false);
+        if (mIsTweening)
         {
             return;
         }
         mStep++;
         mBox.enabled = false;
-        Debug.LogError(mStep);
         mStartNextStep = true;
     }
     public override void OnUpdate()
