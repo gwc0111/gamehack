@@ -37,11 +37,15 @@ SpriteAtlas:
   m_PackedSprites:
   - {fileID: 21300000, guid: 5eedbd550bd9e0446a62ed80965808b9, type: 3}
   - {fileID: 21300000, guid: 8298e5560873147418eabb342d5ff3bc, type: 3}
+  - {fileID: 21300000, guid: 40d76028776a2e646941efd8a67795d9, type: 3}
   - {fileID: 21300000, guid: a2dc5ca8eae2d6340bfb473b0a0f23f6, type: 3}
+  - {fileID: 21300000, guid: 29ce784d842989446b0bae092df81dd1, type: 3}
   m_PackedSpriteNamesToIndex:
   - "\u542F\u52A8\u6309\u94AE"
   - "\u542F\u52A8"
+  - "\u9000\u51FA\u6309\u94AE110%"
   - "\u9000\u51FA\u6309\u94AE"
+  - "\u542F\u52A8\u6309\u94AE110%"
   m_Tag: StarMenu
   m_IsVariant: 0
   m_IsPlaceholder: 0

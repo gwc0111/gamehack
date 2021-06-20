@@ -63,6 +63,10 @@ public class BGMManager : MonoBehaviour
 
     private void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
         if (!isSetting)
             return;
 
