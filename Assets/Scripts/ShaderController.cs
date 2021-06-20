@@ -33,8 +33,10 @@ public class ShaderController : MonoBehaviour
     {
         if (collision.name.Contains("Virus"))
         {
-            if(enableDissolve)
+            if (enableDissolve)
                 SetDissolve();
+            else
+                BGMManager.instance.PlayAudioEffect("Iron");
 
             Destroy(collision.gameObject);
         }

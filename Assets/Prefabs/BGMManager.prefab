@@ -49,6 +49,11 @@ MonoBehaviour:
     volume: 1
     loop: 1
     source: {fileID: 0}
+  - name: Title
+    clip: {fileID: 8300000, guid: e389dd3775b934479a44dbd3dc05e78f, type: 3}
+    volume: 1
+    loop: 1
+    source: {fileID: 0}
   audioEffect:
   - name: OpenDoor
     clip: {fileID: 8300000, guid: a028d6e058c184ee5bbf41f4bf5b2728, type: 3}
@@ -85,18 +90,18 @@ MonoBehaviour:
     volume: 1
     loop: 0
     source: {fileID: 0}
-  - name: StartMenu
-    clip: {fileID: 8300000, guid: 56811246663c79846a8f789020242ecc, type: 3}
-    volume: 0.5
+  - name: TakeKey
+    clip: {fileID: 8300000, guid: 477d77e34bc4b414b95f1255682d8e88, type: 3}
+    volume: 1
     loop: 0
     source: {fileID: 0}
-  - name: photoMove
-    clip: {fileID: 8300000, guid: 47259be219c9f7643a297b65486ac2b0, type: 3}
-    volume: 0.5
+  - name: Iron
+    clip: {fileID: 8300000, guid: ee7d44253c83e4b1ca176bd1d6fa8c58, type: 3}
+    volume: 1
     loop: 0
     source: {fileID: 0}
-  - name: Key
-    clip: {fileID: 8300000, guid: 9e8d47e13ef8f92409abff4ab4ff6c52, type: 3}
-    volume: 0.5
+  - name: Type
+    clip: {fileID: 8300000, guid: b81b467fcd576483887be774d4a893e2, type: 3}
+    volume: 1
     loop: 0
     source: {fileID: 0}
