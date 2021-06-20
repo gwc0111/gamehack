@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     SpriteRenderer sp;
     Rigidbody2D rigidbody2d;
+    bool canWalk = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +18,13 @@ public class PlayerController : MonoBehaviour
     }
 
     void FixedUpdate()
-    { 
+    {
+        if (!canWalk)
+        {
+            animator.SetFloat("Speed", 0);
+            return;
+        }
+
         float horizontal = Input.GetAxis("Horizontal");
 
         if (Mathf.Approximately(horizontal, 0.0f))
@@ -34,4 +41,8 @@ public class PlayerController : MonoBehaviour
         rigidbody2d.position = new Vector2(rigidbody2d.position.x+dmove, rigidbody2d.position.y);
     }
 
+    public void SetPlayCanWalk(bool b)
+    {
+        canWalk = b;
+    }
 }
