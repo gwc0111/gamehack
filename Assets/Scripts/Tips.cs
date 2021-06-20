@@ -27,7 +27,7 @@ public class Tips : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             var flowchart = GameObject.Find("Flowchart").GetComponent<Flowchart>();
-            if(flowchart != null)
+            if(flowchart != null && block!="")
             {
                 flowchart.ExecuteBlock(block);
             }

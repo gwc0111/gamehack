@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Events;
 
 public class WindowObj : ObjBase
 {
@@ -12,6 +13,8 @@ public class WindowObj : ObjBase
         firOpenWindow,
         SecOpenWindow,
     }
+    [SerializeField] UnityEvent OnCloseWindow;
+    [SerializeField] UnityEvent OnOpenWindowEx;
     private GameObject mLeftOpen;
     private GameObject mLeftClose;
     private GameObject mRightOpen;
@@ -140,6 +143,8 @@ public class WindowObj : ObjBase
         ExitView();
         mLeftClose.GetComponent<BoxCollider>().enabled = false;
         mRightClose.GetComponent<BoxCollider>().enabled = false;
+
+        OnCloseWindow.Invoke();
     }
     private IEnumerator OnNoodleDialog()
     {
@@ -164,6 +169,7 @@ public class WindowObj : ObjBase
         mNoodleBox.enabled = true;
         mLeftClose.GetComponent<BoxCollider>().enabled = false;
         mRightClose.GetComponent<BoxCollider>().enabled = false;
+        OnOpenWindowEx.Invoke();
     }
     private bool IsStart()
     {

@@ -18,7 +18,7 @@ public class RoomSwitcher : MonoBehaviour
 
     public void SetEnable(bool b)
     {
-        enabled = b;
+        isOpen = b;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
