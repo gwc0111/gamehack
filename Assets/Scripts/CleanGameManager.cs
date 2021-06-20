@@ -49,7 +49,7 @@ public class CleanGameManager : MonoBehaviour
         SceneController.instance.EndFocus();
 
         faceMask.SetActive(false);
-        entrance.SetActive(true);
+        entrance.GetComponent<RoomSwitcher>().isOpen = true;
 
         OnEndGame.Invoke();
     }

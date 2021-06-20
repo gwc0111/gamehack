@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Fungus;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(BoxCollider))]
 public class Clickable : MonoBehaviour
@@ -9,11 +10,25 @@ public class Clickable : MonoBehaviour
     [SerializeField] GameObject hoverEffectPrefab;
     [SerializeField] bool focusToBlock = true;
     [SerializeField] string block;
+    [SerializeField] bool enable = true;
+    [SerializeField] UnityEvent OnClicked;
     GameObject hoverEffect;
+
+    private void Start()
+    {
+        OnClicked = new UnityEvent();
+    }
+
+    public void SetEnable(bool enable_)
+    {
+        enable = enable_;
+    }
 
     // Update is called once per frame
     void Update()
     {
+        if (!enable)
+            return;
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
@@ -50,6 +65,8 @@ public class Clickable : MonoBehaviour
                 Destroy(hoverEffect);
 
             this.enabled = false;
+
+            OnClicked.Invoke();
         }
 
     }

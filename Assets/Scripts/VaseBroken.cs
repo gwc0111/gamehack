@@ -9,12 +9,17 @@ public class VaseBroken : MonoBehaviour
     [SerializeField] string endBlock;
     public bool enable = true;
 
+    public void SetEnable(bool b)
+    {
+        enable = b;
+    }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (!enable)
             return;
 
-        if (collision.gameObject.tag == "Player" && !GameLogicManager.Instance.IsFirstLevelOver)
+        if (collision.gameObject.tag == "Player")
         {
             StartCoroutine(VaseIsBroken());
         }

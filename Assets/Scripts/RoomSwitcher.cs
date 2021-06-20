@@ -15,10 +15,14 @@ public class RoomSwitcher : MonoBehaviour
         inDoorArea = false;
     }
 
+    public void SetEnable(bool b)
+    {
+        enabled = b;
+    }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (isOpen)
-            inDoorArea = true;
+        inDoorArea = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -29,14 +33,17 @@ public class RoomSwitcher : MonoBehaviour
     
     private void Update()
     {
-        if (!inDoorArea || !isOpen)
+        if (!inDoorArea)
             return;
-        if(!GameLogicManager.Instance.IsFirstLevelOver)
-        {
-            return;
-        }
+
         if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
+            if (!isOpen)
+            {
+                BGMManager.instance.PlayAudioEffect("CantOpenDoor");
+                return;
+            }
+
             //切换房间
             GameObject player = GameObject.Find("Player");
             player.transform.position = target.position;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using Fungus;
+using UnityEngine.Events;
 
 public class VirusGameManager : MonoBehaviour
 {
@@ -12,11 +13,13 @@ public class VirusGameManager : MonoBehaviour
 
     [SerializeField] ShaderController leftBuilding;
     [SerializeField] string endBlock;
+    [SerializeField] UnityEvent OnGameFinish;
     //[SerializeField] string endBlock;
     bool isStart = false;
 
     private void Start()
     {
+        OnGameFinish = new UnityEvent();
         StartCoroutine(Setup());
     }
 
@@ -27,7 +30,6 @@ public class VirusGameManager : MonoBehaviour
         leftBuilding.OnBuildingFinish.AddListener(GameFinish);
     }
 
-
     public void StartGame()
     {
         isStart = true;
@@ -36,7 +38,7 @@ public class VirusGameManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    { 
         if(Input.GetMouseButtonDown(0) && isStart)
         {
             var virus = Instantiate(virusPrefab, transform);
@@ -66,6 +68,8 @@ public class VirusGameManager : MonoBehaviour
         {
             flowchart.ExecuteBlock(endBlock);
         }
+
+        OnGameFinish.Invoke();
         //FindObjectOfType<Flowchart>().ExecuteBlock(endBlock);
     }
 }
