@@ -86,6 +86,7 @@ public class PhotoObj : ObjBase
             else if(mStep == TutorialStep.Disapera)
             {
                 //mPhoto.gameObject.SetActive(false);
+                BGMManager.instance.PlayAudioEffect("photoMove");
                 mPhoto.DOLocalMoveX(15, TweenDur).OnComplete(()=> { mIsTweening = false; });
                 mPhoto.GetComponent<SpriteRenderer>().material.DOFade(0, TweenDur);
                 mIsTweening = true;
@@ -135,6 +136,7 @@ public class PhotoObj : ObjBase
     {
         mIsTweening = true;
         mKey.DOScale(new Vector3(2, 2, 0), dis).OnComplete(() => {
+            BGMManager.instance.PlayAudioEffect("Key");
             mKey.GetComponent<SpriteRenderer>().material.DOFade(0, dis).OnComplete(()=> {
                 mIsTweening = false;
                 mKey.gameObject.SetActive(false);

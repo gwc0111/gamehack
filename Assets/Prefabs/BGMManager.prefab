@@ -90,3 +90,13 @@ MonoBehaviour:
     volume: 0.5
     loop: 0
     source: {fileID: 0}
+  - name: photoMove
+    clip: {fileID: 8300000, guid: 47259be219c9f7643a297b65486ac2b0, type: 3}
+    volume: 0.5
+    loop: 0
+    source: {fileID: 0}
+  - name: Key
+    clip: {fileID: 8300000, guid: 9e8d47e13ef8f92409abff4ab4ff6c52, type: 3}
+    volume: 0.5
+    loop: 0
+    source: {fileID: 0}
