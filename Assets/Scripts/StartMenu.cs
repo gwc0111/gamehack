@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-
+using DG.Tweening;
 public class StartMenu : MonoBehaviour
 {
     public Button StartBtn;
@@ -20,8 +20,8 @@ public class StartMenu : MonoBehaviour
 
     private void OnStartBtn()
     {
-        Debug.LogError("OnStart");
-
+        BGMManager.instance.PlayAudioEffect("StartMenu");
+        MenuPrs.transform.DOScaleX(0, 0.5f).OnComplete(()=> { MenuPrs.SetActive(false); });
     }
     private void OnExitBtnClick()
     {
