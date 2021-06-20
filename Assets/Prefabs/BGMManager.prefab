@@ -106,7 +106,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: photoMove
-    clip: {fileID: 8300000, guid: d5f7e1c15761e2548a45101c8fb42ac6, type: 3}
+    clip: {fileID: 8300000, guid: 32f7bee0ab36aea43a361bf81c549288, type: 3}
     volume: 1
     loop: 0
     source: {fileID: 0}

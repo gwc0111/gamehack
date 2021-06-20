@@ -136,7 +136,7 @@ public class PhotoObj : ObjBase
     {
         mIsTweening = true;
         mKey.DOScale(new Vector3(2, 2, 0), dis).OnComplete(() => {
-            BGMManager.instance.PlayAudioEffect("Key");
+            BGMManager.instance.PlayAudioEffect("TakeKey");
             mKey.GetComponent<SpriteRenderer>().material.DOFade(0, dis).OnComplete(()=> {
                 mIsTweening = false;
                 mKey.gameObject.SetActive(false);
