@@ -71,6 +71,10 @@ public class WindowObj : ObjBase
     }
     public override void OnUpdateWithHit(RaycastHit hit, bool isMouseLeftDown)
     {
+        if(!GameLogicManager.Instance.IsCanOpenWindow)
+        {
+            return;
+        }
         if(mIsViewing)
         {
             return;
