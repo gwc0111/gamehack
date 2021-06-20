@@ -6,6 +6,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
+
 public class StartMenu : MonoBehaviour
 {
     public Button StartBtn;
@@ -20,18 +22,12 @@ public class StartMenu : MonoBehaviour
 
     private void OnStartBtn()
     {
-        BGMManager.instance.PlayAudioEffect("StartMenu");
-        MenuPrs.transform.DOScaleX(0, 0.5f).OnComplete(()=> { MenuPrs.SetActive(false); });
+        //BGMManager.instance.PlayAudioEffect("StartMenu");
+        //MenuPrs.transform.DOScaleX(0, 0.5f).OnComplete(()=> { MenuPrs.SetActive(false); });
+        SceneManager.LoadScene("Main");
     }
     private void OnExitBtnClick()
     {
         Application.Quit();
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
