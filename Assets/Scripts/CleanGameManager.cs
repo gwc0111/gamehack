@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using Fungus;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CleanGameManager : MonoBehaviour
 {
     [SerializeField] GameObject faceMask;
     [SerializeField] GameObject[] dirtyList;
     [SerializeField] string endBlock;
+    [SerializeField] UnityEvent OnEndGame;
     [SerializeField] GameObject entrance;
     int lastDirtyCount;
 
@@ -48,5 +50,7 @@ public class CleanGameManager : MonoBehaviour
 
         faceMask.SetActive(false);
         entrance.SetActive(true);
+
+        OnEndGame.Invoke();
     }
 }

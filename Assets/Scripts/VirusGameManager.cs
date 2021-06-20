@@ -11,6 +11,7 @@ public class VirusGameManager : MonoBehaviour
     [SerializeField] Transform[] targetList;
 
     [SerializeField] ShaderController leftBuilding;
+    [SerializeField] string endBlock;
     //[SerializeField] string endBlock;
     bool isStart = false;
 
@@ -60,11 +61,11 @@ public class VirusGameManager : MonoBehaviour
 
         SceneController.instance.EndFocus();
 
-        //var flowchart = FindObjectOfType<Flowchart>();
-        //if (flowchart != null)
-        //{
-        //    flowchart.ExecuteBlock(endBlock);
-        //}
+        var flowchart = GameObject.Find("Flowchart").GetComponent<Flowchart>();
+        if (flowchart != null)
+        {
+            flowchart.ExecuteBlock(endBlock);
+        }
         //FindObjectOfType<Flowchart>().ExecuteBlock(endBlock);
     }
 }

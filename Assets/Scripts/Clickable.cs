@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using Fungus;
 using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider))]
 public class Clickable : MonoBehaviour
 {
     [SerializeField] GameObject hoverEffectPrefab;
+    [SerializeField] bool focusToBlock = true;
     [SerializeField] string block;
     GameObject hoverEffect;
 
@@ -34,11 +36,15 @@ public class Clickable : MonoBehaviour
                 Destroy(hoverEffect);
         }
 
-        if(hoverEffect && Input.GetMouseButtonDown(0) && block != "")
+        if(hoverEffect && Input.GetMouseButtonDown(0))
         {
-            Flowchart flowchart = GameObject.Find("Flowchart").GetComponent<Flowchart>();
-            SceneController.instance.StartFocus();
-            flowchart.ExecuteBlock(block);
+            if (block != "")
+            {
+                Flowchart flowchart = GameObject.Find("Flowchart").GetComponent<Flowchart>();
+                if (focusToBlock)
+                    SceneController.instance.StartFocus();
+                flowchart.ExecuteBlock(block);
+            }
 
             if (hoverEffect)
                 Destroy(hoverEffect);
