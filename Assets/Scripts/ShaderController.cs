@@ -13,7 +13,7 @@ public class ShaderController : MonoBehaviour
     void Start()
     {
         material = GetComponent<SpriteRenderer>().material;
-        OnBuildingFinish = new UnityEvent();
+        //OnBuildingFinish = new UnityEvent();
     }
 
     public void SetDissolve()

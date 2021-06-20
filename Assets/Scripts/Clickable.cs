@@ -16,7 +16,7 @@ public class Clickable : MonoBehaviour
 
     private void Start()
     {
-        OnClicked = new UnityEvent();
+
     }
 
     public void SetEnable(bool enable_)

@@ -9,7 +9,7 @@ public class DirtyThing : MonoBehaviour
 
     private void Start()
     {
-        DirtyDestroy = new UnityEvent();
+        //DirtyDestroy = new UnityEvent();
     }
 
     void OnTriggerExit2D(Collider2D collision)

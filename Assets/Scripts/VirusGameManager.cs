@@ -19,7 +19,6 @@ public class VirusGameManager : MonoBehaviour
 
     private void Start()
     {
-        OnGameFinish = new UnityEvent();
         StartCoroutine(Setup());
     }
 

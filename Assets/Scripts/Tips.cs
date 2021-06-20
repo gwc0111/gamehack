@@ -12,7 +12,7 @@ public class Tips : MonoBehaviour
 
     private void Start()
     {
-        OnEnter = new UnityEvent();
+        //OnEnter = new UnityEvent();
     }
 
     public void SetEnable(bool b)
@@ -26,7 +26,7 @@ public class Tips : MonoBehaviour
             return;
         if(collision.gameObject.tag == "Player")
         {
-            var flowchart = FindObjectOfType<Flowchart>();
+            var flowchart = GameObject.Find("Flowchart").GetComponent<Flowchart>();
             if(flowchart != null)
             {
                 flowchart.ExecuteBlock(block);

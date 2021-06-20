@@ -6,6 +6,7 @@ public class RoomSwitcher : MonoBehaviour
 {
     [SerializeField] Transform target;
     [SerializeField] PolygonCollider2D targetCollider;
+    [SerializeField] GameObject arrow;
     public bool isOpen;
 
     bool inDoorArea;
@@ -34,9 +35,15 @@ public class RoomSwitcher : MonoBehaviour
     private void Update()
     {
         if (!inDoorArea)
+        {
+            arrow.SetActive(false);
             return;
+        }
 
-        if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        if(isOpen)
+            arrow.SetActive(true);
+
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             if (!isOpen)
             {

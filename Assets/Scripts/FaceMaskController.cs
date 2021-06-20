@@ -16,8 +16,8 @@ public class FaceMaskController : MonoBehaviour
     {
         isPressed = false;
 
-        KeyPressed = new UnityEvent();
-        KeyReleased = new UnityEvent();
+        //KeyPressed = new UnityEvent();
+        //KeyReleased = new UnityEvent();
         collider2D = GetComponent<PolygonCollider2D>();
     }
 
