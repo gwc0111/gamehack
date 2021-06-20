@@ -12,7 +12,7 @@ public class GameLogicManager : MonoBehaviour
     {
         Instance = this;
         IsCanOpenPhoto = true;
-        IsCanOpenWindow = false;
+        IsCanOpenWindow = true;
     }
     // Start is called before the first frame update
     void Start()

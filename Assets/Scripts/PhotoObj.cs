@@ -124,11 +124,10 @@ public class PhotoObj : ObjBase
         }
         if(mIsGetKey)
         {
-            Debug.LogError("获得钥匙");
             mStep = TutorialStep.Over;
             mBox.enabled = false;
             ExitView();
-            GameLogicManager.Instance.IsFirstLevelOver = mIsGetKey;
+            GameObject.Find("RoomSwitcher1-2").GetComponent<RoomSwitcher>().isOpen = mIsGetKey;
         }
     }
     private float dis = 0.5f;

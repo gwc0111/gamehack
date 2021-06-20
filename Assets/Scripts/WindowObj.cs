@@ -8,7 +8,9 @@ public class WindowObj : ObjBase
 {
     enum StepWindow
     {
-
+        None,
+        firOpenWindow,
+        SecOpenWindow,
     }
     private GameObject mLeftOpen;
     private GameObject mLeftClose;
@@ -22,6 +24,8 @@ public class WindowObj : ObjBase
 
     private bool mIsDia = false;
     private bool mIsOver = false;
+
+    private StepWindow mStep = StepWindow.None;
     public override void Init()
     {
         mLeftOpen = transform.Find("LeftOpen").gameObject;
@@ -31,6 +35,8 @@ public class WindowObj : ObjBase
         mBoxColl = GetComponent<BoxCollider>();
         mNoodleBox = GameObject.Find("NoodleBox").GetComponent<BoxCollider>();
         mNoodleBox.enabled = false;
+        HoverPre.transform.position = new Vector3(3, 2, 0);
+        HoverPre.SetActive(false);
     }
     public override void OnObjMouseOver()
     {
@@ -61,25 +67,7 @@ public class WindowObj : ObjBase
         {
             return;
         }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ExitView();
-        }
-        if(mNoodleBox.enabled == false )
-        {
-            if(mIsLeftOpening && mIsRightOpening)
-                mNoodleBox.enabled = true;
-        }
-        if(mIsDia)
-        {
-            mNoodleBox.enabled = false;
-            if (!mIsDialoging)
-            {
-                ExitView();
-                mNoodleBox.enabled = false;
-                mIsOver = true;
-            }
-        }
+   
     }
     public override void OnUpdateWithHit(RaycastHit hit, bool isMouseLeftDown)
     {
@@ -96,34 +84,82 @@ public class WindowObj : ObjBase
             return;
         }
         CurHitObj = hit.collider.gameObject;
-        if(CurHitObj == mLeftClose)
+        if (CurHitObj == mLeftClose)
         {
             OpenLeftWindow(mIsLeftOpening);
         }
-        //else if(CurHitObj == mLeftOpen)
-        //{
-        //    OpenLeftWindow(false);
-        //}
+        ////else if(CurHitObj == mLeftOpen)
+        ////{
+        ////    OpenLeftWindow(false);
+        ////}
         else if (CurHitObj == mRightClose)
         {
             OpenRightghtWindow(mIsRightOpening);
         }
-        //else if (CurHitObj == mRightOpen)
+        ////else if (CurHitObj == mRightOpen)
+        ////{
+        ////    OpenRightghtWindow(false);
+        ////}
+        //else if(CurHitObj == mNoodleBox.gameObject)
         //{
-        //    OpenRightghtWindow(false);
+        //    ExcuteSayDialog("NoodleBox");
+        //    mIsDia = true;
+        //    mNoodleBox.enabled = false;
         //}
-        else if(CurHitObj == mNoodleBox.gameObject)
+        if (IsStart() && CurHitObj == gameObject)
         {
-            ExcuteSayDialog("NoodleBox");
-            mIsDia = true;
-            mNoodleBox.enabled = false;
-        }
-        if(IsStart() && CurHitObj == gameObject)
-        {
+            HoverPre.SetActive(false);
             mBoxColl.enabled = false;
             ExcuteView("ViewWindow");
+            if(mStep == StepWindow.firOpenWindow || mStep == StepWindow.None)
+            {
+                StartCoroutine(OnOpenWindow());
+            }
+            else
+            {
+                StartCoroutine(SecOpenWindow());
+            }
+            
         }
+        if (CurHitObj == mNoodleBox.gameObject)
+        {
+            ExcuteSayDialog("NoodleBox");
+            mNoodleBox.enabled = false;
+            StartCoroutine(OnNoodleDialog());
+        }
+    }
+    private IEnumerator SecOpenWindow()
+    {
+        mLeftClose.GetComponent<BoxCollider>().enabled = true;
+        mRightClose.GetComponent<BoxCollider>().enabled = true;
+        yield return new WaitUntil(() => { return mIsLeftOpening == false && mIsRightOpening == false; });
+        ExitView();
+        mLeftClose.GetComponent<BoxCollider>().enabled = false;
+        mRightClose.GetComponent<BoxCollider>().enabled = false;
+    }
+    private IEnumerator OnNoodleDialog()
+    {
+        yield return new WaitUntil(()=> { return mIsDialoging == false; });
+        mBoxColl.enabled = true;
+        mStep = StepWindow.SecOpenWindow;
+        yield return new WaitUntil(() => { return mIsLeftOpening == false && mIsRightOpening == false; });
+        
+    }
 
+    public override void OnObjMouseExit()
+    {
+        HoverPre.SetActive(false);
+    }
+    private IEnumerator OnOpenWindow()
+    {
+        mNoodleBox.enabled = false;
+        yield return new WaitUntil(()=> { return mIsLeftOpening && mIsRightOpening; });
+        ExcuteSayDialog("AfterOpenWindow");
+        yield return new WaitUntil(()=> { return mIsDialoging == false; });
+        ExitView();
+        mNoodleBox.enabled = true;
+        mLeftClose.GetComponent<BoxCollider>().enabled = false;
+        mRightClose.GetComponent<BoxCollider>().enabled = false;
     }
     private bool IsStart()
     {
