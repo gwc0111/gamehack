@@ -110,3 +110,8 @@ MonoBehaviour:
     volume: 1
     loop: 0
     source: {fileID: 0}
+  - name: openWindow
+    clip: {fileID: 8300000, guid: 1be7e4d4ea8254c48baac906db935ebe, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}

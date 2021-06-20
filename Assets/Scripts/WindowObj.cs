@@ -183,8 +183,10 @@ public class WindowObj : ObjBase
             mNoodleBox.enabled = false;
         }
         mIsTweening = true;
+        BGMManager.instance.PlayAudioEffect("openWindow");
         if (mIsLeftOpening)
         {
+            
             mLeftClose.transform.DOScaleX(-0.5f, 0.8f).OnComplete(() => {
                 //mLeftClose.SetActive(false);
                 mIsTweening = false;
@@ -216,6 +218,7 @@ public class WindowObj : ObjBase
             mNoodleBox.enabled = false;
         }
         mIsTweening = true;
+        BGMManager.instance.PlayAudioEffect("openWindow");
         if (mIsRightOpening)
         {
             mRightClose.transform.DOScaleX(-0.5f, 0.8f).OnComplete(() => {
